@@ -27,10 +27,10 @@ class PriceSeries:
         return (self.values[-1] - self.values[0]) / self.values[0]
     
     def get_all_linear_returns(self) -> list[float]:
-        return [self.linear_return(t) for t in range(1, len(self.values))]
+        return [self.get_linear_return(t) for t in range(1, len(self.values))]
     
     def get_all_log_returns(self) -> list[float]:
-        return [self.log_return(t) for t in range(1, len(self.values))]
+        return [self.get_log_return(t) for t in range(1, len(self.values))]
     
     def annualized_volatility(self) -> float:
         log_returns = self.get_all_log_returns()
