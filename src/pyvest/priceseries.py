@@ -14,7 +14,7 @@ class PriceSeries:
     """
     
     TRADING_DAYS_PER_YEAR: int = 252
-    
+
     def __init__(self, values: list[float], name: str = "unnamed") -> None:
         self.values = list(values)  # Copie défensive
         self.name = name
@@ -68,20 +68,3 @@ class PriceSeries:
         if len(self.values) < 2:
             return 0.0
         return (self.values[-1] - self.values[0]) / self.values[0]
-    
-    def get_all_linear_returns(self) -> list[float]:
-        return [self.linear_return(t) for t in range(1, len(self.values))]
-    
-    def get_all_log_returns(self) -> list[float]:
-        return [self.log_return(t) for t in range(1, len(self.values))]
-
-    def annualized_volatility(self) -> float:
-        log_returns = self.get_all_log_returns()
-        n = len(log_returns)
-        if n == 0:
-            return 0.0
-        mean_log_return = sum(log_returns) / n
-        variance = sum((r - mean_log_return) ** 2 for r in log_returns) / n
-        daily_volatility = math.sqrt(variance)
-        annualized_volatility = daily_volatility * math.sqrt(self.trading_days_per_year)
-        return annualized_volatility
