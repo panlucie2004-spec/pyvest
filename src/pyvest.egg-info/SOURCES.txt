@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/pyvest/__init__.py
+src/pyvest/priceseries.py
+src/pyvest.egg-info/PKG-INFO
+src/pyvest.egg-info/SOURCES.txt
+src/pyvest.egg-info/dependency_links.txt
+src/pyvest.egg-info/requires.txt
+src/pyvest.egg-info/top_level.txt
