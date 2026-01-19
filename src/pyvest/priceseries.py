@@ -9,10 +9,10 @@ class PriceSeries:
         name: Identifiant de la série
     
     Class Attributes:
-        TRADING_DAYS_PER_YEAR: Constante d'annualisation 
+        TRADING_DAYS_PER_YEAR: Constante d'annualisation
         (convention US equities, peut varier selon l'actif)
     """
-    
+
     TRADING_DAYS_PER_YEAR: int = 252
 
     def __init__(self, values: list[float], name: str = "unnamed") -> None:
