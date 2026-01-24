@@ -1,6 +1,8 @@
 README.md
 pyproject.toml
 src/pyvest/__init__.py
+src/pyvest/asset.py
+src/pyvest/constant.py
 src/pyvest/priceseries.py
 src/pyvest.egg-info/PKG-INFO
 src/pyvest.egg-info/SOURCES.txt

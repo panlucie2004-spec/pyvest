@@ -13,6 +13,11 @@ dependencies = [
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.uv.workspace]
+members = [
+    "pyvest",
+]
+
 [dependency-groups]
 dev = [
     "mypy>=1.19.1",
