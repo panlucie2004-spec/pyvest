@@ -1,7 +1,7 @@
 # Fichier: pyvest/src/asset.py
 
-from pyvest.priceseries import PriceSeries
-from pyvest.constant import CurrencyEnum
+from .priceseries import PriceSeries
+from .constant import CurrencyEnum
 
 
 class Asset:
@@ -39,6 +39,12 @@ class Asset:
         """Représentation pour le développement."""
         return f"Asset({self.ticker!r}, {len(self.prices)} prices)"
     
+    #Gemini
+    @property
+    def current_price(self) -> float:
+        return self.prices.values[-1]
+    #Fin gemini
+
     def __str__(self) -> str:
         """Représentation pour l'utilisateur."""
         return f"{self.ticker}: ${self.current_price:.2f}"
