@@ -1,7 +1,5 @@
-# Fichier: pyvest/src/asset.py
-
-from pyvest.priceseries import PriceSeries
-from pyvest.constant import CurrencyEnum
+from priceseries import PriceSeries
+from constant import CurrencyEnum
 
 
 class Asset:
@@ -29,6 +27,8 @@ class Asset:
             raise ValueError("Le ticker ne peut pas être vide")
         if len(prices) == 0:
             raise ValueError("La série de prix ne peut pas être vide")
+        if any(prices < 0):
+            raise ValueError("La série de prix ne peut pas contenir de valeurs négatives")
         
         self.ticker = ticker.upper()  # Normalisation en majuscules
         self.prices = prices  # Composition : Asset POSSÈDE une PriceSeries
