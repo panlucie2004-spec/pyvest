@@ -48,3 +48,29 @@ class Asset:
     def __str__(self) -> str:
         """Représentation pour l'utilisateur."""
         return f"{self.ticker}: ${self.current_price:.2f}"
+    
+    @property
+    def current_price(self) -> float:
+        """Dernier prix connu."""
+        return self.prices.values[-1]
+    
+    @property
+    def volatility(self) -> float:
+        """Volatilité annualisée (délègue à PriceSeries)."""
+        return self.prices.get_annualized_volatility()
+    
+    @property
+    def total_return(self) -> float:
+        """Rendement total (délègue à PriceSeries)."""
+        return self.prices.total_return
+    
+    @property
+    def sharpe_ratio(self) -> float:
+        """Ratio de Sharpe (délègue à PriceSeries)."""
+        return self.prices.sharpe_ratio()
+    
+    @property
+    def max_drawdown(self) -> float:
+        """Drawdown maximum (délègue à PriceSeries)."""
+        return self.prices.max_drawdown()
+    
