@@ -5,7 +5,7 @@ from typing import Iterator
 from itertools import combinations
 import pandas as pd
 import numpy as np
-from itertools import combinations
+
 
 
 class Universe:
