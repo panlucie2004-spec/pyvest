@@ -9,7 +9,7 @@ from typing import Sequence
 import pandas as pd
 import yfinance as yf
 
-from priceseries import PriceSeries
+from .priceseries import PriceSeries
 
 class DataLoader:
     """
