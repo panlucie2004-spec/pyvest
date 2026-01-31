@@ -1,5 +1,6 @@
 from priceseries import PriceSeries
 from constant import CurrencyEnum
+import numpy as np
 
 
 class Asset:
@@ -74,3 +75,47 @@ class Asset:
         """Drawdown maximum (délègue à PriceSeries)."""
         return self.prices.max_drawdown()
     
+    def correlation_with(self, other: "Asset") -> float:
+        """
+        Calcule la corrélation de Pearson des log-rendements avec un autre actif.
+        
+        Args:
+            other: Un autre Asset
+        
+        Returns:
+            Coefficient de corrélation entre -1 et 1
+        """
+        # Récupération des log-rendements
+        x = np.array(self.prices.get_all_log_returns())
+        y = np.array(other.prices.get_all_log_returns())
+        
+        # Alignement des longueurs (gestion des séries de tailles différentes)
+        n = min(len(x), len(y))
+        if n < 2:
+            raise ValueError(
+                f"Pas assez d'observations communes: {n}. "
+                "Minimum requis: 2."
+            )
+        
+        x = x[:n]
+        y = y[:n]
+        
+        # Centrage des valeurs (soustraction de la moyenne)
+        x_centered = x - np.mean(x)
+        y_centered = y - np.mean(y)
+        
+        # Covariance (numérateur)
+        covariance = np.dot(x_centered, y_centered) / (n - 1)
+        
+        # Variances pour le dénominateur
+        var_x = np.dot(x_centered, x_centered) / (n - 1)
+        var_y = np.dot(y_centered, y_centered) / (n - 1)
+        
+        # Vérification de la variance nulle
+        if var_x == 0 or var_y == 0:
+            raise ValueError(
+                "Variance nulle détectée. "
+                "La corrélation n'est pas définie pour une série constante."
+            )
+        
+        return covariance / np.sqrt(var_x * var_y)
