@@ -195,7 +195,8 @@ class DataLoader:
         else:
             self.logger.info(f"Cache MISS pour {ticker}. Fetching all.")
             data = yf.download(ticker, start=dates[0], end=dates[1], progress=False)
-            if data.empty: return None
+            if data.empty: 
+                return None
             
             final_df = data[[price_col]]
             self._save_to_cache(self._get_cache_path(ticker, price_col, dates), 
