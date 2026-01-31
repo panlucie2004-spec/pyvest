@@ -1,6 +1,7 @@
 from priceseries import PriceSeries
 from constant import CurrencyEnum
 import numpy as np
+import pandas as pd
 
 
 class Asset:
@@ -40,9 +41,10 @@ class Asset:
         """Représentation pour le développement."""
         return f"Asset({self.ticker!r}, {len(self.prices)} prices)"
     
-    #Gemini
+
     @property
     def current_price(self) -> float:
+        """Dernier prix connu."""
         return self.prices.values[-1]
     #Fin gemini
 
@@ -50,11 +52,8 @@ class Asset:
         """Représentation pour l'utilisateur."""
         return f"{self.ticker}: ${self.current_price:.2f}"
     
-    @property
-    def current_price(self) -> float:
-        """Dernier prix connu."""
-        return self.prices.values[-1]
     
+
     @property
     def volatility(self) -> float:
         """Volatilité annualisée (délègue à PriceSeries)."""
