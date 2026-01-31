@@ -1,7 +1,7 @@
 from priceseries import PriceSeries
 from constant import CurrencyEnum
 import numpy as np
-import pandas as pd
+
 
 
 class Asset:
