@@ -1,4 +1,4 @@
-# Fichier: pyvest/src/constant.py
+
 from enum import StrEnum
 
 class CurrencyEnum(StrEnum):
