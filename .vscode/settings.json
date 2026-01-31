@@ -1,6 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./src/pyvest"
-    ],
-    "python.defaultInterpreterPath": "./.venv/bin/python"
-}
