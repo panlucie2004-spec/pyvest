@@ -1,7 +1,7 @@
 # Fichier: pyvest/src/asset.py
 
-from .priceseries import PriceSeries
-from .constant import CurrencyEnum
+from priceseries import PriceSeries
+from constant import CurrencyEnum
 
 
 class Asset:
