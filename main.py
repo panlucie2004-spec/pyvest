@@ -6,10 +6,10 @@ import pandas as pd
 sys.path.append(os.path.abspath("src"))
 
 # 2. Imports officiels
-from pyvest.asset import Asset
-from pyvest.universe import Universe
-from pyvest.priceseries import PriceSeries
-from pyvest.constant import CurrencyEnum 
+from pyvest.src.pyvest.asset import Asset
+from pyvest.src.pyvest.universe import Universe
+from pyvest.src.pyvest.priceseries import PriceSeries
+from pyvest.src.pyvest.constant import CurrencyEnum 
 
 # Simulation de Sectors (à ajouter dans constant.py plus tard)
 class Sectors:
