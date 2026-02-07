@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath("pyvest/src"))
 from pyvest.asset import Asset
 from pyvest.universe import Universe
 from pyvest.priceseries import PriceSeries
-from pyvest.constant import CurrencyEnum
+
 
 # Simulation de Sectors (à ajouter dans constant.py plus tard)
 class Sectors:

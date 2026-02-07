@@ -79,7 +79,8 @@ class Universe:
     
         # Définition de la clé de tri
         # Si use_absolute est True, on trie par |rho|, sinon par rho
-        sort_key = lambda x: abs(x[2]) if use_absolute else x[2]
+        def sort_key(x):
+            return abs(x[2]) if use_absolute else x[2]
         
         # Tri décroissant (reverse=True) pour avoir les plus fortes corrélations en premier
         correlations.sort(key=sort_key, reverse=True)
