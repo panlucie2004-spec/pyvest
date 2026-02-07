@@ -3,13 +3,13 @@ import os
 import pandas as pd
 
 # 1. Configuration du chemin
-sys.path.append(os.path.abspath("src"))
+sys.path.append(os.path.abspath("pyvest/src"))
 
 # 2. Imports officiels
-from pyvest.src.pyvest.asset import Asset
-from pyvest.src.pyvest.universe import Universe
-from pyvest.src.pyvest.priceseries import PriceSeries
-from pyvest.src.pyvest.constant import CurrencyEnum 
+from pyvest.asset import Asset
+from pyvest.universe import Universe
+from pyvest.priceseries import PriceSeries
+from pyvest.constant import CurrencyEnum
 
 # Simulation de Sectors (à ajouter dans constant.py plus tard)
 class Sectors:
